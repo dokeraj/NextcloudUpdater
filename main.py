@@ -65,7 +65,7 @@ def startMainProcess():
 
 
 def main():
-    print("STARTING SCRIPT!")
+    print("\nSTARTING SCRIPT!")
     container, config = containerChecks.mainChecks()
 
     handleScheduling(config)
