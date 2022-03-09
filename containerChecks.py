@@ -42,5 +42,5 @@ def mainChecks():
         print(f"ERROR: The container with name {config.nextcloudContainerName} is not created from the nextcloud image! Please use a container that it is the Nextcloud! Now exiting!")
         sys.exit(0)
 
-    print("SUCCESS: The specified container is currently running and is in fact Nextcloud container!")
+    print("Success. The specified container is currently running and is in fact Nextcloud container!")
     return container, config
