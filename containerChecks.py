@@ -14,7 +14,10 @@ def checkNextcloudValidity(container):
 def checkNextcloudAvailability(dockerClient, config):
     try:
         container = dockerClient.containers.get(config.nextcloudContainerName)
-        return True, container
+        if str(container.status).lower() == "running":
+            return True, container
+        else:
+            return False, None
     except Exception as e:
         return False, None
 
@@ -40,7 +43,7 @@ def mainChecks():
 
     if not checkNextcloudValidity(container):
         print(f"ERROR: The container with name {config.nextcloudContainerName} is not created from the nextcloud image! Please use a container that it is the Nextcloud! Now exiting!")
-        sys.exit(0)
+        sys.exit()
 
     print("Success. The specified container is currently running and is in fact Nextcloud container!")
     return container, config
